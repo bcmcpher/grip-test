@@ -20,6 +20,10 @@ input = args.csv
 df = pd.read_csv(input)
 
 ## compute the mean
+if any(df['age'].isnan()):
+    print('warning')
+    mnAge = df['age'].loc[df['age'].isnan].mean()
+
 mnAge = df['age'].mean()
 mnGst = df['grip_strength'].mean()
 
